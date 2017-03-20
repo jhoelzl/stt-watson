@@ -50,7 +50,7 @@ class WSInterfaceProtocol(WebSocketClientProtocol):
         print("onConnect, server connected: {0}".format(response.peer))
 
     def onOpen(self):
-        print "onOpen"
+        print("onOpen")
         data = {"action": "start", "content-type": str(self.contentType), "continuous": True, "interim_results": True,
                 "inactivity_timeout": 600}
         data['word_confidence'] = True
