@@ -22,7 +22,7 @@ class WSInterfaceProtocol(WebSocketClientProtocol):
         self.bytesSent = 0
         self.chunkSize = Config.Instance().getAudioChunk()  # in bytes
         super(self.__class__, self).__init__()
-        print "contentType: " + str(self.contentType)
+        print("contentType: " + str(self.contentType))
 
     def setListeners(self, listeners):
         self.listeners = listeners
@@ -47,7 +47,7 @@ class WSInterfaceProtocol(WebSocketClientProtocol):
         return
 
     def onConnect(self, response):
-        print "onConnect, server connected: {0}".format(response.peer)
+        print("onConnect, server connected: {0}".format(response.peer))
 
     def onOpen(self):
         print "onOpen"
@@ -56,13 +56,13 @@ class WSInterfaceProtocol(WebSocketClientProtocol):
         data['word_confidence'] = True
         data['timestamps'] = True
         data['max_alternatives'] = 3
-        print "sendMessage(init)"
+        print("sendMessage(init)")
         # send the initialization parameters
         self.sendMessage(json.dumps(data).encode('utf8'))
         # start sending audio right away (it will get buffered in the STT service)
         self.bytesSent = 0
         self.maybeSendChunk()
-        print "onOpen ends"
+        print("onOpen ends")
 
     def onMessage(self, payload, isBinary):
 
@@ -76,7 +76,7 @@ class WSInterfaceProtocol(WebSocketClientProtocol):
             if 'state' in jsonObject:
                 self.listeningMessages += 1
                 if (self.listeningMessages == 2):
-                    print "sending close 1000"
+                    print("sending close 1000")
                     # close the connection
                     self.sendClose(1000)
 
@@ -86,7 +86,7 @@ class WSInterfaceProtocol(WebSocketClientProtocol):
                 hypothesis = ""
                 # empty hypothesis
                 if (len(jsonObject['results']) == 0):
-                    print "empty hypothesis!"
+                    print("empty hypothesis!")
                 # regular hypothesis
                 else:
                     hypothesis = jsonObject['results'][0]['alternatives'][0]['transcript']
