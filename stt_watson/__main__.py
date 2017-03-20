@@ -25,8 +25,8 @@ def main():
         watsonConfig = Config.Instance().getWatsonConfig()
         
         # Python 2/3 compatibility
-        try: input = raw_input
-        except NameError: pass
+        # try: input = raw_input
+        # except NameError: pass
 
         user = input("Watson user: ")
         password = input("Watson password: ")
