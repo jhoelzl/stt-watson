@@ -3,7 +3,7 @@ import threading  # multi threading
 import queue  # queue used for thread syncronization
 # WebSockets
 from autobahn.twisted.websocket import WebSocketClientFactory
-from WSInterfaceProtocol import WSInterfaceProtocol
+from watson_client.websocket.WSInterfaceProtocol import WSInterfaceProtocol
 from twisted.internet import ssl, reactor
 
 
