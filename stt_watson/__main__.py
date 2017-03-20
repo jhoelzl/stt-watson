@@ -18,8 +18,8 @@ def main():
                         required=False)
     args = parser.parse_args()
     if not os.path.isfile(args.configFile):
-        print "Config file '" + args.configFile + "' doesn't exist."
-        print "Creating it ..."
+        print("Config file '" + args.configFile + "' doesn't exist.")
+        print("Creating it ...")
         data = pkgutil.get_data('config', 'config.sample.yml')
         Config.Instance().loadConfigFromResource(data)
         watsonConfig = Config.Instance().getWatsonConfig()
