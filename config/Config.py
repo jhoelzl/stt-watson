@@ -7,7 +7,7 @@ from utils.Singleton import Singleton
 
 @Singleton
 class Config:
-    DEFAULT_CONFIG_FILE = "module_config/config-stt-watson.yml"
+    DEFAULT_CONFIG_FILE = "./config-stt-watson.yml"
 
     def __init__(self):
         self.yamlConfig = {'watson-stt': {}}
