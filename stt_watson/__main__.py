@@ -23,8 +23,13 @@ def main():
         data = pkgutil.get_data('config', 'config.sample.yml')
         Config.Instance().loadConfigFromResource(data)
         watsonConfig = Config.Instance().getWatsonConfig()
-        user = raw_input("Watson user: ")
-        password = raw_input("Watson password: ")
+        
+        # Python 2/3 compatibility
+        try: input = raw_input
+        except NameError: pass
+
+        user = input("Watson user: ")
+        password = input("Watson password: ")
         watsonConfig["user"] = user
         watsonConfig["password"] = password
         f = open(args.configFile, 'w')
