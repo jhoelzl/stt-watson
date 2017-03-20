@@ -1,6 +1,11 @@
 # coding=utf-8
 import threading  # multi threading
-import queue  # queue used for thread syncronization
+
+try:
+    from Queue import Queue # queue used for thread syncronization
+except:
+    from queue import Queue 
+     
 # WebSockets
 from autobahn.twisted.websocket import WebSocketClientFactory
 from watson_client.websocket.WSInterfaceProtocol import WSInterfaceProtocol
