@@ -39,7 +39,7 @@ class Record(threading.Thread):
         stream.stop_stream()
         stream.close()
         self.p.terminate()
-        print 'finished recording'
+        print('finished recording')
 
     def pauseRecord(self):
         self.pauseRecord = True
