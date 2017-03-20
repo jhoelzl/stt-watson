@@ -60,7 +60,8 @@ class Client:
                                                                                    self.configData["password"])
         else:
             string = self.configData["user"] + ":" + self.configData["password"]
-            headers["Authorization"] = "Basic " + base64.b64encode(string)
+            # headers["Authorization"] = "Basic " + base64.b64encode(string)
+            headers["Authorization"] = b"Basic " + base64.b64encode(string.encode('ascii'))
 
         # create a WS server factory with our protocol
         url = "wss://" + hostname + "/speech-to-text/api/v1/recognize?model=" + self.configData["model"]
