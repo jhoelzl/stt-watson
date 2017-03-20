@@ -17,7 +17,7 @@ class Config:
     def loadConfigFile(self):
         if not os.path.isfile(self.configFile):
             return
-        streamConfig = file(self.configFile, 'r')
+        streamConfig = open(self.configFile, 'r')
         self.loadConfigFromResource(streamConfig)
 
     def loadConfigFromResource(self, resource):
