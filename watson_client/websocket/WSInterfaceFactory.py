@@ -1,6 +1,6 @@
 # coding=utf-8
 import threading  # multi threading
-import Queue  # queue used for thread syncronization
+import queue  # queue used for thread syncronization
 # WebSockets
 from autobahn.twisted.websocket import WebSocketClientFactory
 from WSInterfaceProtocol import WSInterfaceProtocol
@@ -29,12 +29,12 @@ class WSInterfaceFactory(WebSocketClientFactory):
         return False
 
     def endReactor(self):
-        print "about to stop the reactor!"
+        print("about to stop the reactor!")
         reactor.stop()
 
     # this function gets called every time connectWS is called (once per WebSocket connection/session)
     def buildProtocol(self, addr):
-        print 'Build protocol'
+        print('Build protocol')
         proto = WSInterfaceProtocol(self, self.audioFd, self.summary, self.contentType)
         proto.setListeners(self.listeners)
         proto.setUtterance()
