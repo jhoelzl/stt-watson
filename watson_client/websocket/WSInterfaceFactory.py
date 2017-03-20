@@ -10,7 +10,7 @@ from twisted.internet import ssl, reactor
 class WSInterfaceFactory(WebSocketClientFactory):
     def __init__(self, audioFd, summary, contentType, model, url=None, headers=None, debug=None):
         self.listeners = []
-        WebSocketClientFactory.__init__(self, url=url, headers=headers, debug=debug)
+        WebSocketClientFactory.__init__(self, url=url, headers=headers)
         self.audioFd = audioFd
         self.summary = summary
         self.contentType = contentType
