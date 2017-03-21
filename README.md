@@ -3,7 +3,7 @@ Continuous speech to text using watson in python with websocket and record from 
 
 ## Requirements
 
-- **Python 2.7**
+- **Python 3**
 - **Pip**
 - **portaudio**, can be installed with `brew install portaudio` (mac) or `apt-get install portaudio19-dev`(linux)
 
